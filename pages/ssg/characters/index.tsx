@@ -10,7 +10,7 @@ export default function CharacterPage({ characters }: CharactersResponse): JSX.E
       <Head>
         <title>Rick and Morty - Characters</title>
       </Head>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-center">
         {
           characters.map((character) => (
             <CharacterListItemView key={character.id} character={character} link={`/ssg/character/${character.id}`} />
