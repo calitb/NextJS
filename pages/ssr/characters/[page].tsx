@@ -1,6 +1,6 @@
-import { CharactersResponse, fetchCharacters } from "../../api/rickandmorty";
+import { CharactersResponse, fetchCharacters } from "../../../api/rickandmorty";
 
-import CharacterListItemView from "../../components/CharacterListItemView";
+import CharacterListItemView from "../../../components/CharacterListItemView";
 import { GetServerSideProps } from "next";
 import Head from 'next/head';
 
@@ -13,7 +13,7 @@ export default function CharacterPage({ characters }: CharactersResponse): JSX.E
       <div className="flex flex-wrap">
         {
           characters.map((character) => (
-            <CharacterListItemView key={character.id} character={character} link={`/character_ssr/${character.id}`} />
+            <CharacterListItemView key={character.id} character={character} link={`/ssr/character/${character.id}`} />
           ))
         }
       </div>

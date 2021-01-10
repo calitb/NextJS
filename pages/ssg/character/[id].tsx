@@ -1,7 +1,7 @@
-import { CharacterResponse, fetchCharacter, fetchCharacters } from "../../api/rickandmorty";
+import { CharacterResponse, fetchCharacter, fetchCharacters } from "../../../api/rickandmorty";
 import { GetStaticPaths, GetStaticProps } from "next";
 
-import CharacterView from "../../components/CharacterView";
+import CharacterView from "../../../components/CharacterView";
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 

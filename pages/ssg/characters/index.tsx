@@ -1,7 +1,7 @@
-import { CharactersResponse, fetchCharacters } from "../../api/rickandmorty";
+import { CharactersResponse, fetchCharacters } from "../../../api/rickandmorty";
 
-import CharacterListItemView from "../../components/CharacterListItemView";
-import { GetServerSideProps } from "next";
+import CharacterListItemView from "../../../components/CharacterListItemView";
+import { GetStaticProps } from "next";
 import Head from 'next/head';
 
 export default function CharacterPage({ characters }: CharactersResponse): JSX.Element {
@@ -13,7 +13,7 @@ export default function CharacterPage({ characters }: CharactersResponse): JSX.E
       <div className="flex flex-wrap">
         {
           characters.map((character) => (
-            <CharacterListItemView key={character.id} character={character} link={`/character_ssr/${character.id}`} />
+            <CharacterListItemView key={character.id} character={character} link={`/ssg/character/${character.id}`} />
           ))
         }
       </div>
@@ -21,7 +21,7 @@ export default function CharacterPage({ characters }: CharactersResponse): JSX.E
   );
 };
 
-export const getServerSideProps: GetServerSideProps<CharactersResponse> = async () => {
+export const getStaticProps: GetStaticProps<CharactersResponse> = async () => {
   const res = await fetchCharacters("1");
   if (!res) {
     return { notFound: true };

@@ -1,7 +1,7 @@
-import { CharactersResponse, fetchCharacters } from "../../api/rickandmorty";
+import { CharactersResponse, fetchCharacters } from "../../../api/rickandmorty";
 import { GetStaticPaths, GetStaticProps } from "next";
 
-import CharacterListItemView from "../../components/CharacterListItemView";
+import CharacterListItemView from "../../../components/CharacterListItemView";
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
@@ -21,7 +21,7 @@ export default function CharacterPage({ characters }: CharactersResponse): JSX.E
       <div className="flex flex-wrap">
         {
           characters.map((character) => (
-            <CharacterListItemView key={character.id} character={character} link={`/character_ssg/${character.id}`} />
+            <CharacterListItemView key={character.id} character={character} link={`/ssg/character/${character.id}`} />
           ))
         }
       </div>
