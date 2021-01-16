@@ -1,4 +1,4 @@
-import { CharacterResponse, fetchCharacter, fetchCharacters } from "../../../api/rickandmorty";
+import { CharacterResponse, fetchCharacter, fetchCharacters } from "../../../lib/rickandmorty";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import CharacterView from "../../../components/CharacterView";

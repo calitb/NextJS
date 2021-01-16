@@ -1,4 +1,4 @@
-import { Character } from "../api/rickandmorty";
+import { Character } from "../lib/rickandmorty";
 import Link from "next/link";
 
 interface Props {

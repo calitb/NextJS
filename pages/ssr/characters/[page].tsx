@@ -1,4 +1,4 @@
-import { CharactersResponse, fetchCharacters } from "../../../api/rickandmorty";
+import { CharactersResponse, fetchCharacters } from "../../../lib/rickandmorty";
 
 import CharacterListItemView from "../../../components/CharacterListItemView";
 import { GetServerSideProps } from "next";

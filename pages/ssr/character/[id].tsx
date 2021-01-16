@@ -1,4 +1,4 @@
-import { CharacterResponse, fetchCharacter } from "../../../api/rickandmorty";
+import { CharacterResponse, fetchCharacter } from "../../../lib/rickandmorty";
 
 import { GetServerSideProps } from "next";
 import Head from 'next/head';

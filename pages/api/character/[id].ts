@@ -1,4 +1,4 @@
-import { Character, fetchCharacter } from '../../../api/rickandmorty';
+import { Character, fetchCharacter } from '../../../lib/rickandmorty';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async (req: NextApiRequest, res: NextApiResponse<Character>) => {
