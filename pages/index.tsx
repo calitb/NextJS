@@ -12,7 +12,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className="text-4xl">
-          Rick and Morty
+          Rick and Morty (Staging)
         </h1>
         <Link href="/ssg/characters">
           <a className="underline hover:text-red-400">
