@@ -26,6 +26,18 @@ export default function Home() {
           </a>
         </Link>
 
+        <Link href="/api/characters/1">
+          <a className="underline hover:text-red-400">
+            API Characters
+          </a>
+        </Link>
+
+        <Link href="/api/character/1">
+          <a className="underline hover:text-red-400">
+            API Character
+          </a>
+        </Link>
+
       </main>
 
     </div>
