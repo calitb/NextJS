@@ -1,16 +1,16 @@
-import { CharacterResponse, fetchCharacter, fetchCharacters } from "../../../lib/rickandmorty";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { CharacterResponse, fetchCharacter, fetchCharacters } from '../../../lib/rickandmorty';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
-import CharacterView from "../../../components/CharacterView";
+import CharacterView from '../../../components/CharacterView';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 export default function CharacterPage({ character }: CharacterResponse): JSX.Element {
-  const router = useRouter()
+  const router = useRouter();
 
   // si fallback es true, se muestra esto mientras está cargando la data con getStaticProps
   if (router.isFallback) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   return (
@@ -21,10 +21,10 @@ export default function CharacterPage({ character }: CharacterResponse): JSX.Ele
       <CharacterView character={character} />
     </>
   );
-};
+}
 
 export const getStaticProps: GetStaticProps<CharacterResponse, { id: string }> = async ({ params }) => {
-  if (!params) throw new Error("Missing params");
+  if (!params) throw new Error('Missing params');
 
   const res = await fetchCharacter(params.id);
   if (!res) {
@@ -34,14 +34,14 @@ export const getStaticProps: GetStaticProps<CharacterResponse, { id: string }> =
   return { props: res };
 };
 
-const MAX = 20;
+const MAX = 4;
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetchCharacters("1");
+  const res = await fetchCharacters('1');
 
-  let paths = []
+  let paths = [];
   for (let i = 1; i <= Math.min(MAX, res.apiInfo.count); i++) {
-    const id = "" + i;
-    paths.push({ params: { id } })
+    const id = '' + i;
+    paths.push({ params: { id } });
   }
 
   return {
