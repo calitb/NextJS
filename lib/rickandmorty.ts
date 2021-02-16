@@ -59,13 +59,13 @@ export async function fetchCharacter(id: string): Promise<CharacterResponse | un
   }
 }
 
-function characterMapper({ id, name, image, species, origin }: any): Character {
+export function characterMapper({ id, name, image, species, origin }: any): Character {
   return {
     id: '' + id,
     name,
     image,
     species,
-    origin: origin.name,
+    origin: origin?.name,
   };
 }
 

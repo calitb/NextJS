@@ -34,3 +34,35 @@ describe('Homepage', () => {
     });
   });
 });
+
+describe('Homepage', () => {
+  context('Fixtures', () => {
+    it('should mock the api call with a fixture', () => {
+      cy.intercept('GET', 'https://rickandmortyapi.com/api/character/2', { fixture: 'character' });
+      cy.visit('/');
+      cy.get('#data').should('contain', 'John Smith');
+    });
+
+    it('should mock the api call with a modified fixture', () => {
+      cy.fixture('character').then((character) => {
+        character.name = 'John Appleseed';
+        cy.intercept('GET', 'https://rickandmortyapi.com/api/character/2', character);
+      });
+
+      cy.visit('/');
+      cy.get('#data').should('contain', 'John Appleseed');
+    });
+
+    it('should mock the api call with a full response', () => {
+      cy.fixture('character-error.json').then((json) => {
+        cy.intercept('GET', 'https://rickandmortyapi.com/api/character/2', {
+          statusCode: 404,
+          body: json,
+        });
+      });
+
+      cy.visit('/');
+      cy.get('#data').should('contain', 'undefined');
+    });
+  });
+});
