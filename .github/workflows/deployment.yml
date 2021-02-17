@@ -17,4 +17,6 @@ jobs:
         run: yarn
 
       - name: build and run tests
-        run: yarn e2e
+        run: |
+          yarn e2e
+          yarn e2e:report
